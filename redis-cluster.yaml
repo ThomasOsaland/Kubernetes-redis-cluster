@@ -45,5 +45,5 @@ spec:
           mountPath: /mnt/data
       volumes:
       - name: redis-cluster 
-      hostPath:
-        path: /mnt/data
+        hostPath:
+          path: /mnt/data
