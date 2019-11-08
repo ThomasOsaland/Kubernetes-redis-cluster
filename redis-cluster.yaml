@@ -42,8 +42,8 @@ spec:
           periodSeconds: 3
         volumeMounts:
         - name: redis-cluster-pv
-          mountPath: /data
-          readOnly: false
+          hostPath:
+            path: /mnt/data
   volumeClaimTemplates:
   - metadata:
       name: redis-cluster-pv
