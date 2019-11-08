@@ -18,9 +18,9 @@ spec:
         image: tiroshanm/kubernetes-redis-cluster:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 6379
+        - containerPort: 7000
           name: client
-        - containerPort: 16379
+        - containerPort: 17000
           name: gossip
         command: ["/usr/local/bin/redis-server"]
         args: ["/redis-conf/redis.conf"]
@@ -42,7 +42,7 @@ spec:
           periodSeconds: 3
         volumeMounts:
         - name: redis-cluster-pv
-          mountPath: /mnt/data
+          mountPath: /data
           readOnly: false
   volumeClaimTemplates:
   - metadata:
