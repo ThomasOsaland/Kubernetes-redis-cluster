@@ -42,4 +42,6 @@ spec:
           periodSeconds: 3
         volumeMounts:
         - name: redis-cluster-pv
-          mountPath: /mnt/data
+          hostPath:
+            path: /mnt/data
+            type: Directory
