@@ -41,12 +41,12 @@ spec:
           initialDelaySeconds: 20
           periodSeconds: 3
         volumeMounts:
-        - name: data
-          mountPath: /data
+        - name: redis-cluster-pv
+          mountPath: /mnt/data
           readOnly: false
   volumeClaimTemplates:
   - metadata:
-      name: data
+      name: redis-cluster-pv
       labels:
         name: redis-cluster
       annotations:
