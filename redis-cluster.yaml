@@ -41,5 +41,9 @@ spec:
           initialDelaySeconds: 20
           periodSeconds: 3
         volumeMount:
-        - name: redis-cluster-pv
+        - name: redis-cluster
           mountPath: /mnt/data
+      volumes:
+      - name: redis-cluster 
+      hostPath:
+        path: /mnt/data
