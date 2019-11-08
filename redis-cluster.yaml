@@ -18,9 +18,9 @@ spec:
         image: tiroshanm/kubernetes-redis-cluster:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 7000
+        - containerPort: 6379
           name: client
-        - containerPort: 17000
+        - containerPort: 16379
           name: gossip
         command: ["/usr/local/bin/redis-server"]
         args: ["/redis-conf/redis.conf"]
