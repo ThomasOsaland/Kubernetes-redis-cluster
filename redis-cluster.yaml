@@ -40,8 +40,6 @@ spec:
             - "redis-cli -h $(hostname) ping"
           initialDelaySeconds: 20
           periodSeconds: 3
-        volumes:
+        volumeMount:
         - name: redis-cluster-pv
-          hostPath:
-            path: /mnt/data
-            type: Directory
+          mountPath: /mnt/data
