@@ -43,6 +43,19 @@ spec:
         volumeMounts:
         - name: redis-cluster
           mountPath: /mnt/data
+      initContainers:
+        - name: update-pod-ip
+          image: busybox
+          env:
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          command: ['sh', '-c', 'if [ -s /data/nodes.conf ]; then sed -ri "/myself/s/[0-9]{1,3}\.[0-9]{1,3}.[0-9]{1,3}\.[0-9]{1,3}/$MY_POD_IP/" /data/nodes.conf; fi']
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              readOnly: false
       volumes:
       - name: redis-cluster 
         hostPath:
