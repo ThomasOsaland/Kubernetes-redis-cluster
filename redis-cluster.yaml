@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: redis-cluster
-        image: tiroshanm/kubernetes-redis-cluster:latest
+        image: "redis:4.0.14"
         imagePullPolicy: Always
         ports:
         - containerPort: 6379
