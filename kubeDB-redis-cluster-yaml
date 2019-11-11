@@ -19,3 +19,10 @@ spec:
   terminationPolicy: Pause
   updateStrategy:
     type: RollingUpdate
+  volumeMounts:
+  - name: redis-cluster
+    mountPath: /mnt/data
+volumes:
+- name: redis-cluster 
+  hostPath:
+    path: /mnt/data
