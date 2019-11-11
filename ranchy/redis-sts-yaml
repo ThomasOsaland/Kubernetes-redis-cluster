@@ -59,4 +59,5 @@ spec:
           name: redis-cluster
           defaultMode: 0755
       - name: data
-        hostPath: /data
+        hostPath:
+          path: /data
