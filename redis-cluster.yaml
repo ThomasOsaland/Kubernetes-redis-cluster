@@ -23,15 +23,7 @@ spec:
         - containerPort: 16379
           name: gossip
         command: ["/usr/local/bin/redis-server"]
-        args: 
-        - "/redis-conf/redis.conf"
-        - --cluster-announce-ip
-        - "$(MY_POD_IP)"
-        env:
-        - name: MY_POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.podIP
+        args: ["/redis-conf/redis.conf"]
         readinessProbe:
           exec:
             command:
