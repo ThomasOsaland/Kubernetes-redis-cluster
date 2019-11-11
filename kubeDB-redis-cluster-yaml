@@ -1,46 +1,21 @@
 apiVersion: kubedb.com/v1alpha1
 kind: Redis
 metadata:
-  creationTimestamp: "2019-02-19T13:28:59Z"
-  finalizers:
-  - kubedb.com
-  generation: 2
-  name: redis-cluster
-  namespace: demo
-  resourceVersion: "569405"
-  selfLink: /apis/kubedb.com/v1alpha1/namespaces/demo/redises/redis-cluster
-  uid: 509b50ba-344a-11e9-b1be-0800275426d2
+  name: redis-cluster-kube
 spec:
+  version: 4.0-v2
+  mode: Cluster
   cluster:
     master: 3
     replicas: 1
-  configSource:
-    configMap:
-      defaultMode: 511
-      name: redis-cluster
-  mode: Cluster
-  podTemplate:
-    controller: {}
-    metadata: {}
-    spec:
-      resources: {}
-  replicas: 1
-  serviceTemplate:
-    metadata: {}
-    spec: {}
+  storageType: Durable
   storage:
-    accessModes:
-    - ReadWriteOnce
-    dataSource: null
     resources:
       requests:
         storage: 1Gi
-    storageClassName: standard
-  storageType: Durable
+    storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
   terminationPolicy: Pause
   updateStrategy:
     type: RollingUpdate
-  version: 4.0-v2
-status:
-  observedGeneration: 2$4213139756412538772
-  phase: Running
